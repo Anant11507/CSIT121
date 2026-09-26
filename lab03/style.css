@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(191, 191, 208);
+    color: #222222;
+    font-family: Arial, sans-serif;
+    line-height: 2;
+    margin: 0;
+}
+
+header, main, footer {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {color: yellow;}
+
+p {font-size: 18px;}
+a {color: blue;}
+
+#lab03 {
+    padding: 20px;
+    margin-top: 20px;}
+    .highlight {
+        font-weight: bold;
+    }
