@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 05: UI/UX Website Evaluation</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #222;
+      background-color: #cfe5f3;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #173f5f;
+    }
+    h2 {
+      border-bottom: 2px solid #2a7f62;
+      padding-bottom: 5px;
+      margin-top: 2rem;
+    }
+    .course {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    a {
+      color: #075b9a;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #999;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Website Evaluation: Nepal Tourism Board</h1>
+    <p class="course">CSIT121 | Lab 05: UI/UX Evaluation</p>
+    <p>Evaluation by: Anant Budhathoki</p>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>Website Basics</h2>
+      <dl>
+        <dt>Website name</dt>
+        <dd>Nepal Tourism Board</dd>
+        <dt>Website URL</dt>
+        <dd><a href="https://ntb.gov.np/">https://ntb.gov.np/</a></dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Accessibility Checker Screenshot</h2>
+      <figure>
+        <img src="screenshot.png" alt="Screenshot of the AccessibilityChecker.org results for ntb.gov.np. The score is 30 out of 100, the site is marked not compliant, and six critical issues are listed.">
+        <figcaption>Accessibility Checker results for the Nepal Tourism Board website.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Target Audience</h2>
+      <p>The site is for people planning to visit Nepal, like tourists looking for places to go and people who want to learn about Nepal's culture, nature, and travel spots.
+         Tourism businesses may also use it.</p>
+    </section>
+
+    <section>
+      <h2>Site Organization</h2>
+      <p>The main menu at the top has Places to go, Things to do, Festivals &amp; Events, Plan Your Trip, About Us, and Travel Update. 
+        Each menu item opens a drop-down with links grouped under headings. For example, Plan Your Trip is split into Trip Ideas, About Nepal, Travel Details, and Book Your Trip.</p>
+      <p>The homepage also has sections for places to go, season highlights, events and festivals, and travel inspiration. 
+        Visitors can browse places like Everest, Pokhara, Kathmandu, and Lumbini.</p>
+    </section>
+
+    <section>
+      <h2>CRAP Design Principles</h2>
+      <p><strong>Contrast:</strong> The homepage uses large photos and headings that stand out from the rest of the page. 
+        This draws attention to featured places.</p>
+      <p><strong>Repetition:</strong> The cards and headings use the same style in different sections, so the page feels consistent.</p>
+    </section>
+
+    <section>
+      <h2>Accessibility Audit Score</h2>
+      <p><strong>30 out of 100</strong></p>
+      <p>The Accessibility Checker marked the site as "Not Compliant" and listed six critical issues. 
+        They include duplicate ID values, heading levels out of order, a missing level-one heading, link text that may not be clear, and content outside landmark regions. 
+        The checker also showed 27 passed audits and 22 that need a manual check.</p>
+    </section>
+
+    <section>
+      <h2>Effectiveness</h2>
+      <p>The site gives useful information about places and tourism in Nepal, and the sections help visitors find ideas for where to go. 
+         But the accessibility problems may make some tasks harder for people who use screen readers.</p>
+    </section>
+
+    <section>
+      <h2>Efficiency</h2>
+      <p>I tested one task: finding the Book Experience page. It took two clicks (Plan Your Trip, then Book Experience), so basic tasks are quick. The downside is that most links are hidden inside drop-down menus, so users have to hover or click to find things, and the drop-downs are big and take a while to scan.</p>
+    </section>
+
+    <section>
+      <h2>Engagement</h2>
+      <p>The photos and travel topics make the site interesting and fit its purpose of promoting tourism. Fixing the accessibility problems would help more people enjoy using it.</p>
+    </section>
+
+    <section>
+      <h2>Recommendations</h2>
+      <ol>
+        <li>Give every element ID a unique value.</li>
+        <li>Use heading levels in order, with one <code>h1</code> and then <code>h2</code> and <code>h3</code>.</li>
+        <li>Use link text that clearly says where the link goes.</li>
+        <li>Put page content inside landmarks like <code>header</code>, <code>nav</code>, <code>main</code>, and <code>footer</code>.</li>
+        <li>Test with a keyboard and a screen reader, then run the checker again.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Website evaluated: <a href="https://ntb.gov.np/">Nepal Tourism Board</a></p>
+  </footer>
+
+</body>
+</html>
