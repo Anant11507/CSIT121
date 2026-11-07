@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Contact - Football Player Tier List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Football Player Tier List</h1>
+    <nav>
+      <ul>
+      <li><a href="tierlist.html">Tier List</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Give me your suggestion</h2>
+  <p>Fill out the form below.</p>
+<form id="myform">
+    <p>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required></p>
+
+    <p>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required></p>
+
+    <p>
+      <label for="tier">Who do you think should be in S tier?</label>
+      <select id="tier" name="tier">
+        <option>Lionel Messi</option>
+        <option>Cristiano Ronaldo</option>
+        <option>Kylian Mbappe</option>
+        <option>Neymar</option>
+        <option>Someone else</option>
+      </select></p>
+
+    <p>Do you agree that Messi is the best player ever?</p>
+    <input type="radio" id="yes" name="agree" value="yes">
+    <label for="yes">Yes</label>
+    <input type="radio" id="no" name="agree" value="no">
+    <label for="no">No</label>
+
+    <p>Which of these players have you watched play?</p>
+    <input type="checkbox" id="messi" name="watched" value="Lionel Messi">
+    <label for="messi">Lionel Messi</label>
+    <input type="checkbox" id="ronaldo" name="watched" value="Cristiano Ronaldo">
+    <label for="ronaldo">Cristiano Ronaldo</label>
+    <input type="checkbox" id="mbappe" name="watched" value="Kylian Mbappe">
+    <label for="mbappe">Kylian Mbappe</label>
+
+    <p>
+      <label for="comments">Comments:</label>
+      <textarea id="comments" name="comments"></textarea></p>
+
+    <button type="reset">Reset</button>
+    <button type="submit">Submit</button>
+  </form>
+</main>
+
+<footer>
+  <p>Anant Budhathoki</p>
+</footer>
+  <!--line 68 to line 86 i get it from example that professor has given in the question --> 
+  <script>
+    document.getElementById('myform').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const tier = document.getElementById('tier').value;
+      const comments = document.getElementById('comments').value;
+
+      const data = `Name: ${name}\nEmail: ${email}\nS Tier Pick: ${tier}\nComments: ${comments}`;
+
+      const blob = new Blob([data], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'form-data-from-' + name + '.txt';
+      a.click();
+      URL.revokeObjectURL(url);});
+  </script>
+
+</body>
+</html>
