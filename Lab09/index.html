@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Reads the XML data using JavaScript</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: left;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #7ce2af;
+        }
+
+        th {
+            background-color: #7c0f65;
+            color: white;
+        }
+
+        .button {
+            padding: 20px;
+            border: 4px solid rgb(55, 12, 211);
+            background: rgba(20, 192, 4, 0.5);
+            color: rgb(230, 36, 78);
+            border-radius: 30px;
+            font-size: 30px;
+            width: 500px;
+        }
+
+        .button:hover {
+            color: black;
+            background: white;
+        }
+         </style>
+
+    <script>
+        // The base code (loadXMLDoc and empDetails) is from the
+        // GeeksforGeeks tutorial "Read XML file and print the details
+        // as tabular data by using JavaScript".
+
+        // AI documentation: I used generative AI (Claude) to help write
+        // the toggleData function and the tableOpen variable. I asked it
+        // to make the button show and hide the table and change the
+        // button text. My AI conversation is linked in my submission.
+
+        // keeps track of whether the table is showing
+
+        let tableOpen = false;
+
+        function toggleData() {
+            let btn = document.getElementById("btn");
+            let table = document.getElementById("id");
+
+            if (tableOpen) {
+                // hide the table and change the button text back
+                table.innerHTML = "";
+                btn.textContent = "Get Employee Data";
+                tableOpen = false;
+            } else {
+                // show the table and change the button text
+                loadXMLDoc();
+                btn.textContent = "Close Employee Data";
+                tableOpen = true;
+            }
+        }
+
+        function loadXMLDoc() {
+            let xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    empDetails(this);
+                }
+            };
+            xmlhttp.open("GET", "employee.xml", true);
+            xmlhttp.send();
+        }
+
+        function empDetails(xml) {
+            let i;
+            let xmlDoc = xml.responseXML;
+            let table =
+                `<tr><th>ID</th><th>Firstname</th><th>Lastname</th>
+                    <th>Title</th><th>Division</th>
+                    <th>Building</th><th>Room</th>
+                </tr>`;
+            let x = xmlDoc.getElementsByTagName("employee");
+
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getAttribute("id") + "</td><td>" +
+                    x[i].getElementsByTagName("firstname")[0]
+                        .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("lastname")[0]
+                        .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("title")[0]
+                        .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("division")[0]
+                        .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("building")[0]
+                        .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("room")[0]
+                        .childNodes[0].nodeValue + "</td></tr>";
+            }
+
+            document.getElementById("id").innerHTML = table;
+        }
+    </script>
+</head>
+
+<body>
+    <button type="button" class="button" id="btn" onclick="toggleData()">
+        Get Employee Data
+    </button>
+
+    <br><br>
+<table id="id"></table>
+
+<p>The base code is from the GeeksforGeeks tutorial. 
+    I used AI (Claude) to make the button open and close the table. 
+    It gave me the toggleData() function and the tableOpen variable.</p>
+</body>
+
+</html>
